@@ -120,3 +120,8 @@
   color: #bfb;
   font-size: small;
 }
+
+/* Styles for add to cart button */
+#store .entry form, #store .entry form div {
+display: inline;
+}

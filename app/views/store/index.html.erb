@@ -2,13 +2,17 @@
 <p id="notice" ><%= notice %></p>
 <% end %>
 <h1>Your Pragmatic Catalog</h1>
+<h5><p><%= "You've been here for #{pluralize(@count,'time')}" if @count>5 %></p></h5>
 <% @products.each do |product| %>
 <div class="entry" >
-	<%= image_tag(product.image_url) %>
+	<!--<%= image_tag(product.image_url) %>-->
+	<!-- following code only work after change "javascript_include_tag" in application.html.erb from :default into "application", Danny -->
+	<%= link_to image_tag(product.image_url), line_items_path(:product_id => product), method: :post %>
 	<h3><%= product.title %></h3>
 	<%= sanitize(product.description) %>
 	<div class="price_line" >
-		<span class="price" ><%= number_to_currency(product.price,{:precision=>3, :unit=>'￥'}) %></span>
+		<span class="price" ><%= number_to_currency(product.price) %></span>
+		<%= button_to 'Add to Cart', line_items_path(:product_id => product) %>
 	</div>
 </div>
 <% end %>
