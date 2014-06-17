@@ -51,6 +51,16 @@ class CartsController < ApplicationController
     end
   end
 
+  def add_product(product_id)
+    current_item = line_items.find_by_product_id(product_id)
+    if current_item
+      current_item.quantity += 1
+    else
+      current_item = line_items.build(:product_id => product_id)
+    end
+    current_item
+  end
+
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
@@ -71,4 +81,4 @@ class CartsController < ApplicationController
     def cart_params
       params[:cart]
     end
-end
+  end
