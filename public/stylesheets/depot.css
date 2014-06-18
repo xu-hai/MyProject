@@ -59,7 +59,7 @@
   font-size: 120%;
   font-family: sans-serif;
 }
-#store .entry img {
+#store .entry img, #store .entry input[type=image] {
   width: 80px;
   margin-right: 5px;
   margin-bottom: 5px;
