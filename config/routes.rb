@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pay_types
+
   resources :orders
 
   resources :carts
