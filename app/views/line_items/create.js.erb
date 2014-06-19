@@ -1,0 +1,5 @@
+//page.replace_html('cart', render(@cart))
+$('#cart').html("<%=j render @cart %>");
+$("#cart").show();
+$('#current_item').css({'background-color':'#88ff88'}); //.animate({'background-color':'#114411'}, 1000);
+$('#notice').hide();	//close notice if it is existed
